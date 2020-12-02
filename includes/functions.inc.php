@@ -29,7 +29,7 @@ function createPost($conn, $title, $body) {
     exit();
 }
 
-function readPost($conn) {
+function readPosts($conn) {
     $sql = "SELECT * FROM posts";
 
     // prepare statment - proibir o mysql inject;
@@ -54,3 +54,26 @@ function readPost($conn) {
     mysqli_stmt_close($stmt);
 }
 
+function readOnePost($conn, $pId) {
+    $sql = "SELECT * FROM posts WHERE idP = ?;";
+    $stmt = mysqli_stmt_init($conn);
+    if(!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../index.php?pId=null");
+        exit();
+    }
+    mysqli_stmt_bind_param($stmt, "s", $pId);
+    mysqli_stmt_execute($stmt);
+    
+    $resData = mysqli_stmt_get_result($stmt);
+    
+    if ($row = mysqli_fetch_assoc($resData)) {
+        return $row;
+    } else {
+        $res = false;
+        return $res;
+    }
+
+    mysqli_stmt_close($stmt);
+
+
+}
