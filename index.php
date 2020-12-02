@@ -1,4 +1,4 @@
-<?php require "header.php" ?>
+<?php require "includes/header.php" ?>
 <!-- CONTEUDO DA PAG -->
 <div class="container mt-3">
     
@@ -43,7 +43,7 @@
 
 </div>
 <!-- //CONTEUDO DA PAG -->
-<?php require "footer.php" ?>
+<?php require "includes/footer.php" ?>
 
 
 
