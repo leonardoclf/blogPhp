@@ -27,7 +27,30 @@ function createPost($conn, $title, $body) {
     mysqli_stmt_close($stmt);
     header("location: ../index.php");
     exit();
+}
 
+function readPost($conn) {
+    $sql = "SELECT * FROM posts";
 
+    // prepare statment - proibir o mysql inject;
+    $stmt = mysqli_stmt_init($conn);
+    // checagem por error
+    if(!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../index.php?error=stmtfailed");
+        exit();
+    }
+    
+    // executa
+    mysqli_stmt_execute($stmt);
+    
+    $resData = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_all($resData)) {
+        return $row;
+    } else {
+        $res = false;
+        return $res;
+    }
+    mysqli_stmt_close($stmt);
 }
 
