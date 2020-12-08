@@ -46,7 +46,7 @@ function uidExists($conn, $username, $email) {
 
 function createPost($conn, $title, $body) {
 
-    $sql = "INSERT INTO posts (title, body) VALUES (?, ?);";
+    $sql = "INSERT INTO posts (title, body, author) VALUES (?, ?, ?);";
     
     $stmt = mysqli_stmt_init($conn);
 
@@ -55,7 +55,7 @@ function createPost($conn, $title, $body) {
         exit();
     }
 
-    mysqli_stmt_bind_param($stmt, "ss", $title, $body);
+    mysqli_stmt_bind_param($stmt, "sss", $title, $body, $_SESSION['uName']);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     header("location: ../index.php");

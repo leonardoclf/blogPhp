@@ -13,7 +13,9 @@ require_once 'includes/single.inc.php';
             $title = $post['title'];
             $body = $post['body'];
             $date = $post['date'];
+            $author = $post['author'];
             echo "<h1 class='text-center'>$title</h1>";
+            echo "<p class='text-right'>$author</p>";
             echo "<p class='text-right'>$date</p>";
             echo "<p class='text-justify'>$body</p>";
             ?>

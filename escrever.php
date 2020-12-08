@@ -3,6 +3,7 @@
 
 
 <!-- CONTEUDO DA PAG -->
+<script src="https://cdn.ckeditor.com/ckeditor5/23.1.0/classic/ckeditor.js"></script>
 <div class="main container mt-5">
     <h1>Escrever</h1>
     <form action="includes/escrever.inc.php" method="post">
@@ -12,11 +13,22 @@
         </div>
         <div class="form-group">
             <label for="postConteudo">Conteúdo</label>
-            <textarea class="form-control" type="text" rows="10" cols="10" name="postBody" autocomplete="off" required></textarea>
+            <textarea id="editor" class="form-control" type="text" rows="10" cols="10" name="postBody" autocomplete="off"></textarea>
         </div>        
         <button class="btn btn-primary" type="submit" name="submit">Publicar</button>
     </form>
 </div>
+
+<script>
+        ClassicEditor
+                .create( document.querySelector( '#editor' ) )
+                .then( editor => {
+                        console.log( editor );
+                } )
+                .catch( error => {
+                        console.error( error );
+                } );
+</script>
 <!-- //CONTEUDO DA PAG -->
 
 
@@ -28,7 +40,7 @@
 
 
 
-<?php require_once "includes/footer.php"; ?>
+
 
 
 
