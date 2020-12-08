@@ -39,9 +39,9 @@
                 <input type="submit" name="register" value="Cadastrar"/> 
             </div>
                
-            <p class="link">  
+            <p>  
             Já tem conta?
-            <a href="#paralogin"> Ir para Login </a>
+            <a href="login.php"> Ir para Login </a>
             </p>
         
         </div>

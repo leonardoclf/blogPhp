@@ -26,9 +26,9 @@
           <input type="submit" name="login" value="Entrar" /> 
         </div>
         
-        <p class="link">
+        <p>
           Ainda não tem conta?
-          <a href="#paracadastro">Cadastre-se</a>
+          <a href="register.php">Cadastre-se</a>
         </p>
       </form>
       

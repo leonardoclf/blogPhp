@@ -110,6 +110,22 @@ function readOnePost($conn, $pId) {
     mysqli_stmt_close($stmt);
 }
 
+function delPost($conn, $pId) {
+    $sql = "DELETE FROM posts WHERE idP = ?;";
+    
+    $stmt = mysqli_stmt_init($conn);
+    if(!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../index.php?pId=null");
+        exit();
+    }
+    
+    mysqli_stmt_bind_param($stmt, "s", $pId);
+    mysqli_stmt_execute($stmt);
+    
+    mysqli_stmt_close($stmt);
+    header("location: ../dashboard.php?del=success");
+}
+
 
 
 // Users 
