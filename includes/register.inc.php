@@ -32,7 +32,7 @@ if (!isset($_POST["register"])) {
         header("location: ../registro.php?error=invalidoemail");
         exit();
     }
-    if (pwdMatch($pwd, $pwdRpt) !== false) {
+    if (pwdMatch($userPwd, $userPwdRpt) == false) {
         header("location: ../registro.php?error=pwdnotmatch");
         exit();
     }

@@ -73,10 +73,10 @@ function invalidEmail($email) {
     return $res;
 }
 
-function pwdMatch($pwd, $pwdRepeat) {
+function pwdMatch($pwd, $pwdRpt) {
     $res = NULL;
     
-    if ($pwd !== $pwdRepeat) {
+    if ($pwd == $pwdRpt) {
         $res = true;
     } else {
         $res = false;
