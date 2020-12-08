@@ -19,6 +19,27 @@ if (!isset($_POST["register"])) {
     
     // Criar validações
     // Dos pwds e etc..
+    // ERROR HANDLES
+    if (emptyField($userName, $userEmail, $userUid, $userPwd, $userPwdRpt) !== false) {
+        header("location: ../registro.php?error=campovazio");
+        exit();
+    }
+    if (invalidUid($userUid) !== false) {
+        header("location: ../registro.php?error=invalidouser");
+        exit();
+    }
+    if (invalidEmail($userEmail) !== false) {
+        header("location: ../registro.php?error=invalidoemail");
+        exit();
+    }
+    if (pwdMatch($pwd, $pwdRpt) !== false) {
+        header("location: ../registro.php?error=pwdnotmatch");
+        exit();
+    }
+    if (uidExists($conn, $userUid, $userEmail) !== false) {
+        header("location: ../registro.php?error=usertaken");
+        exit();
+    }
 
 
     createUser($conn, $userName, $userEmail, $userUid, $userPwd);

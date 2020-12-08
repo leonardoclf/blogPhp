@@ -41,6 +41,49 @@ function uidExists($conn, $username, $email) {
     mysqli_stmt_close($stmt);
 }
 
+function emptyField($name, $email, $username, $pwd, $pwdRepeat){
+    $res = NULL;
+
+    if (empty($name) || empty($email) || empty($username) || empty($pwd) || empty($pwdRepeat)) {
+        $res = true;
+    } else {
+        $res = false;
+    }
+    return $res;
+}
+
+function invalidUid($username) {
+    $res = NULL;
+
+    if (!preg_match("/^[a-zA-Z0-9]*$/", $username)) {
+        $res = true;
+    } else {
+        $res = false;
+    }
+    return $res;
+}
+
+function invalidEmail($email) {
+    $res = NULL;
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $res = true;
+    } else {
+        $res = false;
+    }
+    return $res;
+}
+
+function pwdMatch($pwd, $pwdRepeat) {
+    $res = NULL;
+    
+    if ($pwd !== $pwdRepeat) {
+        $res = true;
+    } else {
+        $res = false;
+    }
+    return $res;
+}
+
 
 // Posts
 
@@ -168,7 +211,7 @@ function createUser($conn, $name, $email, $username, $pwd) {
     // executa
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../index.php?login=success");   
+    header("location: ../index.php?register=success");   
 }
 
 function loginUser($conn, $username, $pwd) {
