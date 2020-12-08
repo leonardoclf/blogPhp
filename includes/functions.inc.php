@@ -126,6 +126,22 @@ function delPost($conn, $pId) {
     header("location: ../dashboard.php?del=success");
 }
 
+function editPost($conn, $pId, $title, $body) {
+    $sql = "UPDATE posts SET title = ?, body= ? WHERE idP = ?;";
+    
+    $stmt = mysqli_stmt_init($conn);
+    if(!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../index.php?pId=null");
+        exit();
+    }
+    
+    mysqli_stmt_bind_param($stmt, "sss", $title, $body, $pId);
+    mysqli_stmt_execute($stmt);
+    
+    mysqli_stmt_close($stmt);
+    header("location: ../dashboard.php?edit=success");
+}
+
 
 
 // Users 
