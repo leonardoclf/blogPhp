@@ -11,8 +11,6 @@
 
 ?>
 
-
-
 <!-- CONTEUDO DA PAG -->
 <script src="https://cdn.ckeditor.com/ckeditor5/23.1.0/classic/ckeditor.js"></script>
 <div class="main container mt-5">

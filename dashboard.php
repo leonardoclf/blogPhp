@@ -27,8 +27,8 @@ require_once 'includes/dashboard.inc.php';
                     echo "<td>$title</td>";
                     echo "<td>$author</td>";
                     echo "<td> 
-                            <a href='edit.php?pId=$pId'>Editar</a>
-                            <a href='del.php?pId=$pId'>Apagar</a>
+                            <a class='btn btn-warning' href='edit.php?pId=$pId'>Editar</a>
+                            <a class='btn btn-danger' href='del.php?pId=$pId'>Apagar</a>
                         </td>";
                     echo "</tr>";  
                 }
