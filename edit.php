@@ -16,14 +16,14 @@
 <!-- CONTEUDO DA PAG -->
 <script src="https://cdn.ckeditor.com/ckeditor5/23.1.0/classic/ckeditor.js"></script>
 <div class="main container mt-5">
-    <h1>Escrever</h1>
+    <h1 style="color: white;">Escrever</h1>
     <form action="includes/edit.inc.php?pId=<?php echo $pId?>" method="post">
         <div class="form-group">
             <label for="postTitulo"></label>
             <input class="form-control" type="text" name="postTitle" id="postTitulo" autocomplete="off" placeholder="<?php echo $title ?>" required autofocus>
         </div>
         <div class="form-group">
-            <label for="postConteudo">Conteúdo</label>
+            <label for="postConteudo" style="color: white;">Conteúdo</label>
             <textarea id="editor" class="form-control" type="text" rows="10" cols="10" name="postBody" autocomplete="off"><?php echo $body ?></textarea>
         </div>        
         <button class="btn btn-primary" type="submit" name="submit">Editar</button>

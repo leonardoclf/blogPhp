@@ -9,8 +9,8 @@ require_once 'includes/dashboard.inc.php';
 
 
 <div class="main container mt-3">
-    <table class="table">
-        <thead class="thead-dark">
+    <table class="table table-dark">
+        <thead class="thead-light">
             <tr>
                 <th scope="col">Nº Post</th>
                 <th scope="col">Título</th>
@@ -24,7 +24,7 @@ require_once 'includes/dashboard.inc.php';
                     
                     echo "<tr>";
                     echo "<th scope='row'>$pId</th>";
-                    echo "<td>Autor: $title</td>";
+                    echo "<td>$title</td>";
                     echo "<td>$author</td>";
                     echo "<td> 
                             <a href='edit.php?pId=$pId'>Editar</a>
